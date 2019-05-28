@@ -1,0 +1,15 @@
+cn\ersharing\controller\DownloadApi.class
+cn\ersharing\interceptor\LoginInterceptor.class
+cn\ersharing\controller\CommentApi.class
+cn\ersharing\controller\FeedbackApi.class
+cn\ersharing\controller\PraiseApi.class
+cn\ersharing\jedis\JedisClientCluster.class
+cn\ersharing\controller\ManagerApi.class
+cn\ersharing\controller\InformApi.class
+cn\ersharing\jedis\JedisClient.class
+cn\ersharing\controller\ResourceApi.class
+cn\ersharing\controller\RecordApi.class
+cn\ersharing\jedis\JedisClientPool.class
+cn\ersharing\controller\EnterpriseApi.class
+cn\ersharing\controller\SearchApi.class
+cn\ersharing\aspect\WebLogAspect.class

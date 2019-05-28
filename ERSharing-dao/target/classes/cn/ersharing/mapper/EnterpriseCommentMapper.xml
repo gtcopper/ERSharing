@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.ersharing.mapper.EnterpriseCommentMapper" >
+  <resultMap id="BaseResultMap" type="cn.ersharing.pojo.EnterpriseComment" >
+    <id column="comment_id" property="commentId" jdbcType="INTEGER" />
+    <result column="commenting_enterprise_id" property="commentingEnterpriseId" jdbcType="INTEGER" />
+    <result column="commented_enterprise_id" property="commentedEnterpriseId" jdbcType="INTEGER" />
+    <result column="comment_score" property="commentScore" jdbcType="INTEGER" />
+    <result column="comment_image" property="commentImage" jdbcType="VARCHAR" />
+    <result column="anonymity_enterprise" property="anonymityEnterprise" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.ersharing.pojo.EnterpriseComment" extends="BaseResultMap" >
+    <result column="comment_content" property="commentContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    comment_id, commenting_enterprise_id, commented_enterprise_id, comment_score, comment_image, 
+    anonymity_enterprise
+  </sql>
+  <sql id="Blob_Column_List" >
+    comment_content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="cn.ersharing.pojo.EnterpriseCommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from enterprise_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.ersharing.pojo.EnterpriseCommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from enterprise_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from enterprise_comment
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from enterprise_comment
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.ersharing.pojo.EnterpriseCommentExample" >
+    delete from enterprise_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.ersharing.pojo.EnterpriseComment" >
+    insert into enterprise_comment (comment_id, commenting_enterprise_id, 
+      commented_enterprise_id, comment_score, comment_image, 
+      anonymity_enterprise, comment_content
+      )
+    values (#{commentId,jdbcType=INTEGER}, #{commentingEnterpriseId,jdbcType=INTEGER}, 
+      #{commentedEnterpriseId,jdbcType=INTEGER}, #{commentScore,jdbcType=INTEGER}, #{commentImage,jdbcType=VARCHAR}, 
+      #{anonymityEnterprise,jdbcType=INTEGER}, #{commentContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.ersharing.pojo.EnterpriseComment" >
+    insert into enterprise_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        comment_id,
+      </if>
+      <if test="commentingEnterpriseId != null" >
+        commenting_enterprise_id,
+      </if>
+      <if test="commentedEnterpriseId != null" >
+        commented_enterprise_id,
+      </if>
+      <if test="commentScore != null" >
+        comment_score,
+      </if>
+      <if test="commentImage != null" >
+        comment_image,
+      </if>
+      <if test="anonymityEnterprise != null" >
+        anonymity_enterprise,
+      </if>
+      <if test="commentContent != null" >
+        comment_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        #{commentId,jdbcType=INTEGER},
+      </if>
+      <if test="commentingEnterpriseId != null" >
+        #{commentingEnterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="commentedEnterpriseId != null" >
+        #{commentedEnterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="commentScore != null" >
+        #{commentScore,jdbcType=INTEGER},
+      </if>
+      <if test="commentImage != null" >
+        #{commentImage,jdbcType=VARCHAR},
+      </if>
+      <if test="anonymityEnterprise != null" >
+        #{anonymityEnterprise,jdbcType=INTEGER},
+      </if>
+      <if test="commentContent != null" >
+        #{commentContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.ersharing.pojo.EnterpriseCommentExample" resultType="java.lang.Integer" >
+    select count(*) from enterprise_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update enterprise_comment
+    <set >
+      <if test="record.commentId != null" >
+        comment_id = #{record.commentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentingEnterpriseId != null" >
+        commenting_enterprise_id = #{record.commentingEnterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentedEnterpriseId != null" >
+        commented_enterprise_id = #{record.commentedEnterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentScore != null" >
+        comment_score = #{record.commentScore,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentImage != null" >
+        comment_image = #{record.commentImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.anonymityEnterprise != null" >
+        anonymity_enterprise = #{record.anonymityEnterprise,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentContent != null" >
+        comment_content = #{record.commentContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update enterprise_comment
+    set comment_id = #{record.commentId,jdbcType=INTEGER},
+      commenting_enterprise_id = #{record.commentingEnterpriseId,jdbcType=INTEGER},
+      commented_enterprise_id = #{record.commentedEnterpriseId,jdbcType=INTEGER},
+      comment_score = #{record.commentScore,jdbcType=INTEGER},
+      comment_image = #{record.commentImage,jdbcType=VARCHAR},
+      anonymity_enterprise = #{record.anonymityEnterprise,jdbcType=INTEGER},
+      comment_content = #{record.commentContent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update enterprise_comment
+    set comment_id = #{record.commentId,jdbcType=INTEGER},
+      commenting_enterprise_id = #{record.commentingEnterpriseId,jdbcType=INTEGER},
+      commented_enterprise_id = #{record.commentedEnterpriseId,jdbcType=INTEGER},
+      comment_score = #{record.commentScore,jdbcType=INTEGER},
+      comment_image = #{record.commentImage,jdbcType=VARCHAR},
+      anonymity_enterprise = #{record.anonymityEnterprise,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.ersharing.pojo.EnterpriseComment" >
+    update enterprise_comment
+    <set >
+      <if test="commentingEnterpriseId != null" >
+        commenting_enterprise_id = #{commentingEnterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="commentedEnterpriseId != null" >
+        commented_enterprise_id = #{commentedEnterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="commentScore != null" >
+        comment_score = #{commentScore,jdbcType=INTEGER},
+      </if>
+      <if test="commentImage != null" >
+        comment_image = #{commentImage,jdbcType=VARCHAR},
+      </if>
+      <if test="anonymityEnterprise != null" >
+        anonymity_enterprise = #{anonymityEnterprise,jdbcType=INTEGER},
+      </if>
+      <if test="commentContent != null" >
+        comment_content = #{commentContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.ersharing.pojo.EnterpriseComment" >
+    update enterprise_comment
+    set commenting_enterprise_id = #{commentingEnterpriseId,jdbcType=INTEGER},
+      commented_enterprise_id = #{commentedEnterpriseId,jdbcType=INTEGER},
+      comment_score = #{commentScore,jdbcType=INTEGER},
+      comment_image = #{commentImage,jdbcType=VARCHAR},
+      anonymity_enterprise = #{anonymityEnterprise,jdbcType=INTEGER},
+      comment_content = #{commentContent,jdbcType=LONGVARCHAR}
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.ersharing.pojo.EnterpriseComment" >
+    update enterprise_comment
+    set commenting_enterprise_id = #{commentingEnterpriseId,jdbcType=INTEGER},
+      commented_enterprise_id = #{commentedEnterpriseId,jdbcType=INTEGER},
+      comment_score = #{commentScore,jdbcType=INTEGER},
+      comment_image = #{commentImage,jdbcType=VARCHAR},
+      anonymity_enterprise = #{anonymityEnterprise,jdbcType=INTEGER}
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+</mapper>

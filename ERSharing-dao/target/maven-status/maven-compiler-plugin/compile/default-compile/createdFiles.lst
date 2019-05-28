@@ -1,0 +1,12 @@
+cn\ersharing\mapper\EnterpriseAddressMapper.class
+cn\ersharing\mapper\ResourcesCategoryMapper.class
+cn\ersharing\mapper\FeedbackMapper.class
+cn\ersharing\mapper\EnterpriseCommentMapper.class
+cn\ersharing\mapper\EnterpriseMapper.class
+cn\ersharing\mapper\ResourcesMapper.class
+cn\ersharing\mapper\ManagerMapper.class
+cn\ersharing\mapper\EnterpriseCategoryMapper.class
+cn\ersharing\mapper\ResourcesCommentMapper.class
+cn\ersharing\mapper\RecordMapper.class
+cn\ersharing\mapper\PraiseMapper.class
+cn\ersharing\mapper\InformMapper.class

@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.ersharing.mapper.ResourcesMapper" >
+  <resultMap id="BaseResultMap" type="cn.ersharing.pojo.Resources" >
+    <id column="resources_id" property="resourcesId" jdbcType="INTEGER" />
+    <result column="resources_category_id" property="resourcesCategoryId" jdbcType="INTEGER" />
+    <result column="enterprise_id" property="enterpriseId" jdbcType="INTEGER" />
+    <result column="enterprise_city" property="enterpriseCity" jdbcType="VARCHAR" />
+    <result column="resources_name" property="resourcesName" jdbcType="VARCHAR" />
+    <result column="resources_price" property="resourcesPrice" jdbcType="REAL" />
+    <result column="resources_createTime" property="resourcesCreatetime" jdbcType="TIMESTAMP" />
+    <result column="resources_updateTime" property="resourcesUpdatetime" jdbcType="TIMESTAMP" />
+    <result column="resources_status" property="resourcesStatus" jdbcType="INTEGER" />
+    <result column="resources_count" property="resourcesCount" jdbcType="INTEGER" />
+    <result column="resources_operateType" property="resourcesOperatetype" jdbcType="INTEGER" />
+    <result column="resources_image" property="resourcesImage" jdbcType="VARCHAR" />
+    <result column="resources_transactionTime" property="resourcesTransactiontime" jdbcType="INTEGER" />
+    <result column="resources_agencyFee" property="resourcesAgencyfee" jdbcType="DOUBLE" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.ersharing.pojo.Resources" extends="BaseResultMap" >
+    <result column="resources_desc" property="resourcesDesc" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    resources_id, resources_category_id, enterprise_id, enterprise_city, resources_name, 
+    resources_price, resources_createTime, resources_updateTime, resources_status, resources_count, 
+    resources_operateType, resources_image, resources_transactionTime, resources_agencyFee
+  </sql>
+  <sql id="Blob_Column_List" >
+    resources_desc
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="cn.ersharing.pojo.ResourcesExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from resources
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.ersharing.pojo.ResourcesExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from resources
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from resources
+    where resources_id = #{resourcesId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from resources
+    where resources_id = #{resourcesId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.ersharing.pojo.ResourcesExample" >
+    delete from resources
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.ersharing.pojo.Resources" useGeneratedKeys="true" keyColumn="resources_id" keyProperty="resourcesId" >
+    insert into resources (resources_id, resources_category_id, 
+      enterprise_id, enterprise_city, resources_name, 
+      resources_price, resources_createTime, resources_updateTime, 
+      resources_status, resources_count, resources_operateType, 
+      resources_image, resources_transactionTime, 
+      resources_agencyFee, resources_desc)
+    values (#{resourcesId,jdbcType=INTEGER}, #{resourcesCategoryId,jdbcType=INTEGER}, 
+      #{enterpriseId,jdbcType=INTEGER}, #{enterpriseCity,jdbcType=VARCHAR}, #{resourcesName,jdbcType=VARCHAR}, 
+      #{resourcesPrice,jdbcType=REAL}, #{resourcesCreatetime,jdbcType=TIMESTAMP}, #{resourcesUpdatetime,jdbcType=TIMESTAMP}, 
+      #{resourcesStatus,jdbcType=INTEGER}, #{resourcesCount,jdbcType=INTEGER}, #{resourcesOperatetype,jdbcType=INTEGER}, 
+      #{resourcesImage,jdbcType=VARCHAR}, #{resourcesTransactiontime,jdbcType=INTEGER}, 
+      #{resourcesAgencyfee,jdbcType=DOUBLE}, #{resourcesDesc,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.ersharing.pojo.Resources" >
+    insert into resources
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="resourcesId != null" >
+        resources_id,
+      </if>
+      <if test="resourcesCategoryId != null" >
+        resources_category_id,
+      </if>
+      <if test="enterpriseId != null" >
+        enterprise_id,
+      </if>
+      <if test="enterpriseCity != null" >
+        enterprise_city,
+      </if>
+      <if test="resourcesName != null" >
+        resources_name,
+      </if>
+      <if test="resourcesPrice != null" >
+        resources_price,
+      </if>
+      <if test="resourcesCreatetime != null" >
+        resources_createTime,
+      </if>
+      <if test="resourcesUpdatetime != null" >
+        resources_updateTime,
+      </if>
+      <if test="resourcesStatus != null" >
+        resources_status,
+      </if>
+      <if test="resourcesCount != null" >
+        resources_count,
+      </if>
+      <if test="resourcesOperatetype != null" >
+        resources_operateType,
+      </if>
+      <if test="resourcesImage != null" >
+        resources_image,
+      </if>
+      <if test="resourcesTransactiontime != null" >
+        resources_transactionTime,
+      </if>
+      <if test="resourcesAgencyfee != null" >
+        resources_agencyFee,
+      </if>
+      <if test="resourcesDesc != null" >
+        resources_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="resourcesId != null" >
+        #{resourcesId,jdbcType=INTEGER},
+      </if>
+      <if test="resourcesCategoryId != null" >
+        #{resourcesCategoryId,jdbcType=INTEGER},
+      </if>
+      <if test="enterpriseId != null" >
+        #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="enterpriseCity != null" >
+        #{enterpriseCity,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcesName != null" >
+        #{resourcesName,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcesPrice != null" >
+        #{resourcesPrice,jdbcType=REAL},
+      </if>
+      <if test="resourcesCreatetime != null" >
+        #{resourcesCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resourcesUpdatetime != null" >
+        #{resourcesUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resourcesStatus != null" >
+        #{resourcesStatus,jdbcType=INTEGER},
+      </if>
+      <if test="resourcesCount != null" >
+        #{resourcesCount,jdbcType=INTEGER},
+      </if>
+      <if test="resourcesOperatetype != null" >
+        #{resourcesOperatetype,jdbcType=INTEGER},
+      </if>
+      <if test="resourcesImage != null" >
+        #{resourcesImage,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcesTransactiontime != null" >
+        #{resourcesTransactiontime,jdbcType=INTEGER},
+      </if>
+      <if test="resourcesAgencyfee != null" >
+        #{resourcesAgencyfee,jdbcType=DOUBLE},
+      </if>
+      <if test="resourcesDesc != null" >
+        #{resourcesDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.ersharing.pojo.ResourcesExample" resultType="java.lang.Integer" >
+    select count(*) from resources
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update resources
+    <set >
+      <if test="record.resourcesId != null" >
+        resources_id = #{record.resourcesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.resourcesCategoryId != null" >
+        resources_category_id = #{record.resourcesCategoryId,jdbcType=INTEGER},
+      </if>
+      <if test="record.enterpriseId != null" >
+        enterprise_id = #{record.enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.enterpriseCity != null" >
+        enterprise_city = #{record.enterpriseCity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resourcesName != null" >
+        resources_name = #{record.resourcesName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resourcesPrice != null" >
+        resources_price = #{record.resourcesPrice,jdbcType=REAL},
+      </if>
+      <if test="record.resourcesCreatetime != null" >
+        resources_createTime = #{record.resourcesCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.resourcesUpdatetime != null" >
+        resources_updateTime = #{record.resourcesUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.resourcesStatus != null" >
+        resources_status = #{record.resourcesStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.resourcesCount != null" >
+        resources_count = #{record.resourcesCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.resourcesOperatetype != null" >
+        resources_operateType = #{record.resourcesOperatetype,jdbcType=INTEGER},
+      </if>
+      <if test="record.resourcesImage != null" >
+        resources_image = #{record.resourcesImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resourcesTransactiontime != null" >
+        resources_transactionTime = #{record.resourcesTransactiontime,jdbcType=INTEGER},
+      </if>
+      <if test="record.resourcesAgencyfee != null" >
+        resources_agencyFee = #{record.resourcesAgencyfee,jdbcType=DOUBLE},
+      </if>
+      <if test="record.resourcesDesc != null" >
+        resources_desc = #{record.resourcesDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update resources
+    set resources_id = #{record.resourcesId,jdbcType=INTEGER},
+      resources_category_id = #{record.resourcesCategoryId,jdbcType=INTEGER},
+      enterprise_id = #{record.enterpriseId,jdbcType=INTEGER},
+      enterprise_city = #{record.enterpriseCity,jdbcType=VARCHAR},
+      resources_name = #{record.resourcesName,jdbcType=VARCHAR},
+      resources_price = #{record.resourcesPrice,jdbcType=REAL},
+      resources_createTime = #{record.resourcesCreatetime,jdbcType=TIMESTAMP},
+      resources_updateTime = #{record.resourcesUpdatetime,jdbcType=TIMESTAMP},
+      resources_status = #{record.resourcesStatus,jdbcType=INTEGER},
+      resources_count = #{record.resourcesCount,jdbcType=INTEGER},
+      resources_operateType = #{record.resourcesOperatetype,jdbcType=INTEGER},
+      resources_image = #{record.resourcesImage,jdbcType=VARCHAR},
+      resources_transactionTime = #{record.resourcesTransactiontime,jdbcType=INTEGER},
+      resources_agencyFee = #{record.resourcesAgencyfee,jdbcType=DOUBLE},
+      resources_desc = #{record.resourcesDesc,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update resources
+    set resources_id = #{record.resourcesId,jdbcType=INTEGER},
+      resources_category_id = #{record.resourcesCategoryId,jdbcType=INTEGER},
+      enterprise_id = #{record.enterpriseId,jdbcType=INTEGER},
+      enterprise_city = #{record.enterpriseCity,jdbcType=VARCHAR},
+      resources_name = #{record.resourcesName,jdbcType=VARCHAR},
+      resources_price = #{record.resourcesPrice,jdbcType=REAL},
+      resources_createTime = #{record.resourcesCreatetime,jdbcType=TIMESTAMP},
+      resources_updateTime = #{record.resourcesUpdatetime,jdbcType=TIMESTAMP},
+      resources_status = #{record.resourcesStatus,jdbcType=INTEGER},
+      resources_count = #{record.resourcesCount,jdbcType=INTEGER},
+      resources_operateType = #{record.resourcesOperatetype,jdbcType=INTEGER},
+      resources_image = #{record.resourcesImage,jdbcType=VARCHAR},
+      resources_transactionTime = #{record.resourcesTransactiontime,jdbcType=INTEGER},
+      resources_agencyFee = #{record.resourcesAgencyfee,jdbcType=DOUBLE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.ersharing.pojo.Resources" >
+    update resources
+    <set >
+      <if test="resourcesCategoryId != null" >
+        resources_category_id = #{resourcesCategoryId,jdbcType=INTEGER},
+      </if>
+      <if test="enterpriseId != null" >
+        enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="enterpriseCity != null" >
+        enterprise_city = #{enterpriseCity,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcesName != null" >
+        resources_name = #{resourcesName,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcesPrice != null" >
+        resources_price = #{resourcesPrice,jdbcType=REAL},
+      </if>
+      <if test="resourcesCreatetime != null" >
+        resources_createTime = #{resourcesCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resourcesUpdatetime != null" >
+        resources_updateTime = #{resourcesUpdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resourcesStatus != null" >
+        resources_status = #{resourcesStatus,jdbcType=INTEGER},
+      </if>
+      <if test="resourcesCount != null" >
+        resources_count = #{resourcesCount,jdbcType=INTEGER},
+      </if>
+      <if test="resourcesOperatetype != null" >
+        resources_operateType = #{resourcesOperatetype,jdbcType=INTEGER},
+      </if>
+      <if test="resourcesImage != null" >
+        resources_image = #{resourcesImage,jdbcType=VARCHAR},
+      </if>
+      <if test="resourcesTransactiontime != null" >
+        resources_transactionTime = #{resourcesTransactiontime,jdbcType=INTEGER},
+      </if>
+      <if test="resourcesAgencyfee != null" >
+        resources_agencyFee = #{resourcesAgencyfee,jdbcType=DOUBLE},
+      </if>
+      <if test="resourcesDesc != null" >
+        resources_desc = #{resourcesDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where resources_id = #{resourcesId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.ersharing.pojo.Resources" >
+    update resources
+    set resources_category_id = #{resourcesCategoryId,jdbcType=INTEGER},
+      enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      enterprise_city = #{enterpriseCity,jdbcType=VARCHAR},
+      resources_name = #{resourcesName,jdbcType=VARCHAR},
+      resources_price = #{resourcesPrice,jdbcType=REAL},
+      resources_createTime = #{resourcesCreatetime,jdbcType=TIMESTAMP},
+      resources_updateTime = #{resourcesUpdatetime,jdbcType=TIMESTAMP},
+      resources_status = #{resourcesStatus,jdbcType=INTEGER},
+      resources_count = #{resourcesCount,jdbcType=INTEGER},
+      resources_operateType = #{resourcesOperatetype,jdbcType=INTEGER},
+      resources_image = #{resourcesImage,jdbcType=VARCHAR},
+      resources_transactionTime = #{resourcesTransactiontime,jdbcType=INTEGER},
+      resources_agencyFee = #{resourcesAgencyfee,jdbcType=DOUBLE},
+      resources_desc = #{resourcesDesc,jdbcType=LONGVARCHAR}
+    where resources_id = #{resourcesId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.ersharing.pojo.Resources" >
+    update resources
+    set resources_category_id = #{resourcesCategoryId,jdbcType=INTEGER},
+      enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      enterprise_city = #{enterpriseCity,jdbcType=VARCHAR},
+      resources_name = #{resourcesName,jdbcType=VARCHAR},
+      resources_price = #{resourcesPrice,jdbcType=REAL},
+      resources_createTime = #{resourcesCreatetime,jdbcType=TIMESTAMP},
+      resources_updateTime = #{resourcesUpdatetime,jdbcType=TIMESTAMP},
+      resources_status = #{resourcesStatus,jdbcType=INTEGER},
+      resources_count = #{resourcesCount,jdbcType=INTEGER},
+      resources_operateType = #{resourcesOperatetype,jdbcType=INTEGER},
+      resources_image = #{resourcesImage,jdbcType=VARCHAR},
+      resources_transactionTime = #{resourcesTransactiontime,jdbcType=INTEGER},
+      resources_agencyFee = #{resourcesAgencyfee,jdbcType=DOUBLE}
+    where resources_id = #{resourcesId,jdbcType=INTEGER}
+  </update>
+
+
+  <resultMap id="SearchResourceResultMap" type="cn.ersharing.common.ResponsePojo.SearchResourceResult" >
+    <id column="resources_id" property="resourcesId" jdbcType="INTEGER" />
+    <result column="enterprise_id" property="enterpriseId" jdbcType="INTEGER" />
+    <result column="enterprise_city" property="enterpriseCity" jdbcType="VARCHAR" />
+    <result column="resources_name" property="resourcesName" jdbcType="VARCHAR" />
+    <result column="resources_createTime" property="resourcesCreatetime" jdbcType="TIMESTAMP" />
+    <result column="resources_image" property="resourcesImage" jdbcType="VARCHAR" />
+    <result column="resources_desc" property="resourcesDesc" jdbcType="LONGVARCHAR" />
+    <result column="enterprise_name" property="enterpriseName"/>
+    <result column="enterprise_logo" property="enterpriseLogoUrl"/>
+  </resultMap>
+
+  <select id="selectResourcesByLikeResourcesName" parameterType="java.lang.String" resultMap="SearchResourceResultMap">
+    select * from resources r,enterprise e
+    <where>
+        r.enterprise_id = e.enterprise_id
+        <if test="#{_parameter != null and #{_parameter != ''}}">
+          and r.resources_name like CONCAT(CONCAT('%',#{resourceName}),'%')
+        </if>
+    </where>
+  </select>
+
+
+
+
+  <select id="selectResourcesByLikeCityName" parameterType="java.lang.String" resultMap="SearchResourceResultMap">
+    select * from resources r,enterprise e
+    <where>
+       r.enterprise_id = e.enterprise_id
+      <if test="#{_parameter != null and #{_parameter != ''}}">
+        and r.enterprise_city like CONCAT(CONCAT('%',#{cityName}),'%')
+      </if>
+    </where>
+  </select>
+
+
+  <resultMap id="ResourceDetailMap" type="cn.ersharing.common.ResponsePojo.SearchResourcesDetail" extends="ResultMapWithBLOBs" >
+    <result column="category_name" property="categoryName" jdbcType="VARCHAR" />
+    <result column="enterprise_name" property="enterpriseName"/>
+    <result column="enterprise_logo" property="enterpriseLogoUrl"/>
+    <result column="resources_description" property="resourcesDescription"/>
+  </resultMap>
+
+
+  <select id="selectResourcesDetails" parameterType="int" resultMap="ResourceDetailMap">
+    select * from resources r,enterprise e,resources_category rc
+    <where>
+      r.enterprise_id = e.enterprise_id
+      and r.resources_category_id = rc.category_id
+    </where>
+    order by r.resources_createTime desc
+  </select>
+
+
+  <select id="selectResourcesDetailById" parameterType="int" resultMap="ResourceDetailMap">
+    select * from resources r,enterprise e,resources_category rc
+    <where>
+      r.enterprise_id = e.enterprise_id
+      and r.resources_category_id = rc.category_id
+      <if test="#{_parameter != null and #{_parameter != ''}}">
+        and r.resources_id = #{resourceId}
+      </if>
+    </where>
+  </select>
+
+
+  <select id="selectResourcesByEnterpriseId" parameterType="java.lang.Integer" resultMap="ResourceDetailMap">
+    select
+    r.resources_id,
+    r.resources_category_id,
+    rc.category_name,
+    r.enterprise_id,
+    r.enterprise_city,
+    resources_name,
+    resources_price,
+    resources_createTime,
+    resources_updateTime,
+    resources_status,
+    resources_count,
+    resources_operateType,
+    resources_image,
+    resources_transactionTime,
+    resources_desc,
+    resources_agencyFee,
+    e.enterprise_name,
+    e.enterprise_logo,
+    rc.resources_description
+    from resources r,enterprise e,resources_category rc
+    <where>
+      r.resources_category_id = rc.category_id
+      and e.enterprise_id = r.enterprise_id
+      <if test="#{_parameter != null and #{_parameter != ''}}">
+        and r.enterprise_id = #{_parameter}
+      </if>
+    </where>
+  </select>
+
+
+
+
+</mapper>
