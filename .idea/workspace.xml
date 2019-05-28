@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0de106d-9474-456e-b9fd-be6c2a9379ba" name="Default Changelist" comment="" />
+    <list default="true" id="c0de106d-9474-456e-b9fd-be6c2a9379ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/ERSharing-common/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,13 +44,14 @@
           <entry key="project.open.time.55" value="2" />
           <entry key="project.open.time.57" value="3" />
           <entry key="project.open.time.59" value="1" />
+          <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.60" value="1" />
           <entry key="project.open.time.61" value="1" />
           <entry key="project.open.time.67" value="1" />
           <entry key="project.open.time.68" value="1" />
           <entry key="project.open.time.75" value="1" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="42" />
+          <entry key="project.opened" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -58,7 +63,7 @@
           <entry key="log" value="4" />
           <entry key="png" value="1" />
           <entry key="properties" value="23" />
-          <entry key="xml" value="164" />
+          <entry key="xml" value="166" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -68,7 +73,7 @@
           <entry key="JAVA" value="531" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="Properties" value="23" />
-          <entry key="XML" value="164" />
+          <entry key="XML" value="166" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -77,7 +82,7 @@
           <entry key="java" value="25371" />
           <entry key="properties" value="341" />
           <entry key="txt" value="4" />
-          <entry key="xml" value="2149" />
+          <entry key="xml" value="2154" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -86,13 +91,32 @@
           <entry key="PLAIN_TEXT" value="47" />
           <entry key="Properties" value="341" />
           <entry key="SQL" value="61" />
-          <entry key="XML" value="2088" />
+          <entry key="XML" value="2093" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ERSharing-web/pom.xml">
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2187" />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -110,15 +134,20 @@
       <find>ins</find>
       <find>inser</find>
       <find>selectResourcesDetails</find>
+      <find>file</find>
+      <find>httpclient</find>
+      <find>fast</find>
     </findStrings>
     <replaceStrings>
       <replace>JsonResult</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ERSharing-common/src/main/java/cn/ersharing/common/ResponsePojo/EnterpriseInformationResult.java" />
         <option value="$PROJECT_DIR$/ERSharing-common/src/main/java/cn/ersharing/common/ResponsePojo/FocusResult.java" />
         <option value="$PROJECT_DIR$/ERSharing-common/src/main/java/cn/ersharing/common/RequestPojo/ResourceCommentRequestBody.java" />
         <option value="$PROJECT_DIR$/ERSharing-web/src/main/resources/resource/file.properties" />
@@ -169,6 +198,7 @@
         <option value="$PROJECT_DIR$/ERSharing-web/src/main/java/cn/ersharing/controller/RecordApi.java" />
         <option value="$PROJECT_DIR$/ERSharing-common/src/main/java/cn/ersharing/common/ResponsePojo/TokenResult.java" />
         <option value="$PROJECT_DIR$/ERSharing-service/src/main/java/cn/ersharing/service/impl/EnterpriseServiceImpl.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -229,6 +259,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -241,13 +272,12 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558664281113" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559030070671" />
     <property name="last_opened_file_path" value="E:/taotao" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -436,6 +466,7 @@
       <workItem from="1558334440530" duration="18000" />
       <workItem from="1558663010894" duration="1860000" />
       <workItem from="1558788617030" duration="25000" />
+      <workItem from="1559029643065" duration="273000" />
     </task>
     <servers />
   </component>
@@ -457,7 +488,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269529000" />
+    <option name="totallyTimeSpent" value="269802000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -470,8 +501,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20726173" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21028744" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -488,7 +520,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.1354009" side_tool="true" visible="true" weight="0.31914893" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.1354009" side_tool="true" visible="true" weight="0.2885246" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
@@ -656,14 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="16" column="11" selection-start-line="10" selection-start-column="4" selection-end-line="16" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="262" column="20" selection-start-line="262" selection-start-column="20" selection-end-line="262" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -840,12 +864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ERSharing-web/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3960" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ERSharing-common/src/main/java/cn/ersharing/common/RequestPojo/RecordRequestBody.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -916,6 +934,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ERSharing-web/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2187" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
@@ -970,12 +1002,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>ERSharing-pojo</last-edited>
+          <last-edited>Spring|ERSharing-service</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

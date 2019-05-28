@@ -1,0 +1,2 @@
+0:0:0:0:0:0:0:1 - - [28/May/2019:15:54:48 +0800] "GET /ersharing/api/resource/slideshow HTTP/1.1" 200 424 http-bio-8090-exec-1 914
+0:0:0:0:0:0:0:1 - - [28/May/2019:15:54:50 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8090-exec-3 0
